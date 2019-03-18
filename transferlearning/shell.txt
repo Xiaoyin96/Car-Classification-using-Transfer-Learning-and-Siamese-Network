@@ -1,0 +1,10 @@
+Usage of Transfer Learning Model
+
+Train the model with image
+python retrain.py --image_dir ./sampleImage/train --tfhub_module https://tfhub.dev/google/imagenet/resnet_v2_152/classification/1 
+
+Check the training result
+tensorboard --logdir /tmp/retrain_logs
+
+Classify an image
+python label_image.py --graph=/tmp/output_graph.pb --labels=/tmp/output_labels.txt --input_layer=Placeholder --output_layer=final_result --input_height=224 --input_width=224 --image=./sampleImage/test/0001/00773.jpg
